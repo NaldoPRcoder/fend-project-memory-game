@@ -27,21 +27,62 @@ function shuffle(array) {
 
 
 /*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)*/
- let gameCard = document.querySelector('.deck');
- gameCard.addEventListener('click',cardSymbol);
- function cardSymbol(e) {
-   if (e.target.className === "card") {
-     e.target.className = "card match";
-     console.log(e.target.innerHTML);
-   }
+ * set up the event listener for a card. If a card is clicked:*/
+let clickCount = 0;
+let openCards = [];
 
+ let gameCard = document.querySelector('.deck');
+ gameCard.addEventListener('click',showCard);
+ gameCard.addEventListener('click',saveCardName);
+ /*  - display the card's symbol (put this functionality in another function that you call from this one)*/
+
+function showCard(e) {
+   if (e.target.className === "card") {
+     e.target.className = "card open show";
+   }
+   moves();
+}
+
+/*-add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)*/
+function saveCardName(e) {
+   let name = e.target.innerHTML;
+   openCards.push(name);
+   console.log(name);
+   setTimeout(compareCard,500);
  }
- /*  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
+ /*  - if the list already has another card, check to see if the two cards match*/
+function matchCard(card) {
+  return card == openCards[0];
+}
+
+function compareCard (){
+  if (openCards.length == 2) {
+   let matchingCard = openCards.every(matchCard);
+
+   if (matchingCard) {
+     let sameCards = document.querySelectorAll('.show');
+     for(i = 0; i < sameCards.length; i++){
+       sameCards[i].className = "card match";
+     }
+     openCards.length = 0;
+     console.log(matchingCard);
+   }
+   else {
+     let diffCards = document.querySelectorAll('.show');
+     for(i = 0; i < diffCards.length; i++) {
+       diffCards[i].className = "card";
+     }
+     openCards.length = 0;
+   }
+ }
+}
+
+ /*    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
+ /*    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
+ /*    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)*/
+ function moves() {
+   clickCount ++;
+   document.querySelector('.moves').innerHTML = clickCount;
+ }
+ /*    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
