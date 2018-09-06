@@ -41,7 +41,7 @@ h1 {
     width: 660px;
     min-height: 680px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-    padding: 32px;
+    padding: 28px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
     display: flex;
@@ -81,13 +81,21 @@ h1 {
     font-size: 33px;
 }
 
+.congrats {
+  width: 660px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 40px;
+  display: none;
+  text-shadow: 4px 4px 7px #454545;
+}
 /*
  * Styles for the Score Panel
  */
 
 .score-panel {
-    text-align: left;
-    width: 345px;
+    text-align: center;
+    width: 600px;
     margin-bottom: 10px;
 }
 
@@ -95,7 +103,7 @@ h1 {
     margin: 0;
     padding: 0;
     display: inline-block;
-    margin: 0 5px 0 0;
+    margin: 0 40px 0 0;
 }
 
 .score-panel .stars li {
@@ -103,7 +111,30 @@ h1 {
     display: inline-block;
 }
 
+.score-panel .moves {
+  display: inline-block;
+  margin: 0 40px 0 0;
+}
+
+.score-panel .timer {
+  background-color: black;
+  color: white;
+  display: inline-block;
+  margin: 0 40px 0 0;
+}
+
+.score-panel .timer li {
+  list-style: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.timer ul {
+  margin:0;
+  padding:0;
+}
+
 .score-panel .restart {
-    float: right;
+    display: inline-block;
     cursor: pointer;
 }
