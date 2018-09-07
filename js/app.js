@@ -72,25 +72,12 @@ function showCard(e) {
      e.target.className = "card open show";
      clickCount ++;
      document.querySelector('.moves').innerHTML = clickCount;
-<<<<<<< HEAD
      setTimeout(compareCard,300);
      setTimeout(openCards,700);
      rating();
-||||||| merged common ancestors
-     setTimeout(saveCardName,500);
-     setTimeout(cardCount,700);
-     if (clickCount === 30) {
-       rating(2);
-     }
-     else if (clickCount === 40) {
-        rating(1);
-     }
-=======
      setTimeout(compareCard,500);
      setTimeout(openCards,700);
-     rating();
->>>>>>> 98e15afe2d6f4e566d2edfe840665f40496be961
-   }
+    }
 };
 /*-add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)*/
 function compareCard() {
@@ -168,7 +155,6 @@ function rating() {
       break;
   }
 };
-<<<<<<< HEAD
 
 function resetStars (){
   let star = document.querySelectorAll('.stars li');
@@ -178,58 +164,3 @@ function resetStars (){
   star[1].style.display = 'inline-block';
   congratStar[1].style.display = 'inline-block';
 };
-||||||| merged common ancestors
- /*  - if the list already has another card, check to see if the two cards match
- // let cardLocation = document.querySelectorAll('ul.deck li');
-function matchCard(card) {
-    return card == openCards[0]
-  /*if (openCards[0].isSameNode(openCards[1])) {
-    openCards.length = 0;
-  }
-  else {
-  ;
-}
-// };
-
-// function compareCard (){
-  if (openCards.length == 2) {
-   let matchingCard = openCards.every(matchCard);
-   // let matchingCard = openCards[0].isSameNode(openCards[1]);
-
-
-   if (matchingCard) {
-     let sameCards = document.querySelectorAll('.show');
-     for(i = 0; i < sameCards.length; i++){
-       sameCards[i].className = "card match";
-     }
-     openCards.length = 0;
-     // console.log(matchingCard);
-   }
-
-   else {
-     let diffCards = document.querySelectorAll('.show');
-     for(i = 0; i < diffCards.length; i++) {
-       diffCards[i].className = "card";
-     }
-     openCards.length = 0;
-   }
- };
-// }
-
- /*    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- /*    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- /*    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)*/
-
- /*    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
-=======
-
-function resetStars (){
-  let star = document.querySelectorAll('.stars li');
-  let congratStar = document.querySelectorAll('.congrats p i');
-  star[2].style.display = 'inline-block';
-  congratStar[2].style.display = 'inline-block';
-  star[1].style.display = 'inline-block';
-  congratStar[1].style.display = 'inline-block';
-};
->>>>>>> 98e15afe2d6f4e566d2edfe840665f40496be961
